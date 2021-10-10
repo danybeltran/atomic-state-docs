@@ -35,5 +35,4 @@ export default {
   footer: true,
   footerEditLink: 'Edit this page on GitHub',
   footerText: <>MIT {new Date().getFullYear()}</>,
-  unstable_faviconGlyph: '⚛',
 }
