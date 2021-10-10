@@ -1,0 +1,89 @@
+# Using an atom
+
+Now we can use the `clicks` atom in any component. To do that, you should use the `useAtom` hook.
+
+This is similar to `useState`, the main difference is that it returns 3 items instead of 2. The third item is the actions object.
+
+But we will see that later:)
+
+```jsx
+import { useAtom } from 'atomic-state'
+import { clicks } from 'atoms'
+
+function App() {
+  const [clicksCount, setClicksCount] = useAtom(clicks)
+  return (
+    <div>
+      <h2>{clicksCount}</h2>
+      <button
+        onClick={() => {
+          setClicksCount((c) => c + 1)
+        }}
+      >
+        Increase
+      </button>
+    </div>
+  )
+}
+```
+
+You just created your first atom 🥳!
+
+## Subscribing to an atom
+
+When you use `useAtom`, that component or custom hook will subscribe to all of the changes made to that atom.
+
+That means, it will trigger a re-render of that component's React tree.
+
+Now, let's split that component into two.
+
+In one component, we will show `clicks` value, and from the other one, we will update it.
+
+```jsx
+import { useAtom } from 'atomic-state'
+import { clicks } from 'atoms'
+
+// Show the value
+function ClicksDisplay() {
+  const [clicksCount] = useAtom(clicks)
+  return <h2>{clicksCount}</h2>
+}
+
+// We will update `clicks` here
+function ClicksUpdate() {
+  // Ommit `clicks`'s value, we don't need it
+  const [, setClicksCount] = useAtom(clicks)
+  return (
+    <button
+      onClick={() => {
+        setClicksCount((c) => c + 1)
+      }}
+    >
+      Increase
+    </button>
+  )
+}
+
+export default function App() {
+  return (
+    <div>
+      <ClicksDisplay />
+      <ClicksUpdate />
+    </div>
+  )
+}
+```
+
+That's it!
+
+Basically, all components subscribed to `clicks` will re-render:)
+
+Isn't it amazing?
+
+Now imagine having to write:
+
+```jsx
+const [clicksCount, setClicksCount] = useAtom(clicks)
+```
+
+Whenever you want to use an atom. We'll see an alternative in the next chapter.
