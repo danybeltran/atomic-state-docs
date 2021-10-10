@@ -1,0 +1,66 @@
+# Actions
+
+When you create an atom, you can define an `actions` object that can be used from any component.
+
+## Understanding actions
+
+<p style={{ color: 'orange' }}>Actions are basically reducers.</p>
+
+When you define an action, you define it with one argument that has 3 properties:
+
+- `state`: The current state when the action is run
+- `dispatch`: The actual function that updates the atom's value
+- `args`: The object that will be passed when the action is used
+
+> Note: The `useAction` hook returns the object with the actions as reducers
+
+Let's go back to our `clicks` atom.
+
+We will add an action that increases/decreases the clicks count, deppending on how it is called
+
+```jsx
+import { atom } from 'atomic-state'
+export const clicks = atom({
+  name: 'clicks-track',
+  default: 0,
+  actions: {
+    update({ args, state, dispatch }) {
+      switch (args.type) {
+        case 'increase':
+          dispatch((c) => c + 1)
+          break
+        case 'decrease':
+          dispatch(() => c - 1)
+          break
+        default:
+          break
+      }
+    },
+  },
+})
+```
+
+> So `state` and `dispatch` will always be there, the `args` property is what is passed when the action is called from a component/hook
+
+Let's use that action:
+
+```jsx
+import { useActions } from 'atomic-state'
+import { clicks } from 'atoms'
+
+function Controls() {
+  const actions = useActions(clicks)
+
+  const increase = () => actions.update({ type: 'increase' })
+  const decrease = () => actions.update({ type: 'decrease' })
+
+  return (
+    <div>
+      <button onClick={increase}>Increase</button>
+      <button onClick={decrease}>Decrease</button>
+    </div>
+  )
+}
+```
+
+That's it!
