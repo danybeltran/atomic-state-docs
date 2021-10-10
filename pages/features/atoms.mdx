@@ -1,0 +1,31 @@
+# Atoms
+
+Atoms are the center of Atomic State.
+
+### What is an atom?
+
+Atoms are the most basic unit of _matter_.
+
+In Atomic State, an atom is a piece of state that will preserve its value across components.
+That means that a component can not only be subscribed to it, but also update it, and other
+components subscribed will have access to its most updated value.
+
+They can be separated from your components, in different modules, etc.
+
+### Creating an atom
+
+Let's create our first atom that we will use later
+
+In `atoms/index.js`:
+
+```js
+import { atom } from 'atomic-state'
+export const clicks = atom({
+  name: 'clicks-track',
+  default: 0,
+})
+```
+
+> In the code above:<br/>
+> `name`: The name of the atom. This is used to track its value and update it across components.<br/>
+> `default`: The default atom's value. It can be any data structure (including components)
