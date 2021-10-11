@@ -6,7 +6,7 @@ export default function Nextra({ Component, pageProps }) {
       <Head>
         <meta
           name="description"
-          content="Atomic State is a state managment library for React apps"
+          content="Atomic State is a state management library for React apps"
         />
         <meta property="og:image" content="/preview-image.jpg" />
       </Head>
