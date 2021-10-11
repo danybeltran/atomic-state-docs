@@ -7,7 +7,7 @@ export default {
     <>
       <span className="mr-2 font-extrabold hidden md:inline">Atomic State</span>
       <span className="text-gray-600 font-normal hidden md:inline">
-        A(nother) state managment library
+        A(nother) state management library
       </span>
     </>
   ),
@@ -19,11 +19,11 @@ export default {
       <meta httpEquiv="Content-Language" content="en" />
       <meta
         name="description"
-        content="Atomic State - a(nother) state managment library"
+        content="Atomic State - a(nother) state management library"
       />
       <meta
         name="og:description"
-        content="Atomic State - a(nother) state managment library"
+        content="Atomic State - a(nother) state management library"
       />
       <meta name="og:title" content="Atomic State" />
       <meta name="apple-mobile-web-app-title" content="Atomic State" />
