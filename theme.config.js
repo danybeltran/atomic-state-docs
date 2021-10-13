@@ -1,5 +1,5 @@
 export default {
-  github: 'https://github.com/danybeltran/atomic-state-docs',
+  github: 'https://github.com/danybeltran/atomic-state',
   docsRepositoryBase:
     'https://github.com/danybeltran/atomic-state-docs/blob/master',
   titleSuffix: ' – Atomic State',
@@ -23,7 +23,7 @@ export default {
       />
       <meta
         name="og:description"
-        content="Atomic State - a(nother) state management library"
+        content="Atomic State is a state management library for React apps"
       />
       <meta name="og:title" content="Atomic State" />
       <meta name="apple-mobile-web-app-title" content="Atomic State" />
