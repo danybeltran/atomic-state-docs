@@ -14,7 +14,7 @@ export const useCopyCode = () => {
   })
   // COPY IN CLIPBOARD
   function handleCopyClick(event) {
-    const { children } = event.target.parentElement
+    const { children } = event.target.parentElement.parentElement
     const { innerText } = children[1]
     /* Copy the text inside the text field */
     navigator.clipboard.writeText(innerText)
