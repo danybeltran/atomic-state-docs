@@ -1,0 +1,25 @@
+# Persistencia (web)
+
+El valor de un átomo se puede guardar en el objeto `localStorage`. Esta función solo funciona en la web, por lo que para React Native, deberá usar su propio método de persistencia.
+
+Solo necesita agregar la propiedad `localStorage Persistence` cuando cree el átomo.
+
+Su clave en `localStorage` será`"store-" + el_nombre_del_átomo`.
+
+Volvamos a nuestro átomo de "clics":
+
+```jsx
+import { atom } from 'atomic-state'
+
+const clicks = atom({
+  name: 'clicks-track',
+  default: 0,
+  localStoragePersistence: true,
+})
+```
+
+El valor de ese átomo se guardará en el almacenamiento local como `store-clicks-track`, por lo que siempre que cambie el valor, localStorage se actualizará.
+
+Si se vuelve a cargar la página, el valor inicial se tomará del localStorage (si ya estaba configurado).
+
+> Nota: No use `localStoragePersistence` con átomos cuyo valor es un componente, esto podría generar un error

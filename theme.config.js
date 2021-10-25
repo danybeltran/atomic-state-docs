@@ -3,6 +3,7 @@ export default {
   docsRepositoryBase:
     'https://github.com/danybeltran/atomic-state-docs/blob/master',
   titleSuffix: ' – Atomic State',
+
   logo: (
     <>
       <span className="mr-2 font-extrabold hidden md:inline">Atomic State</span>
@@ -35,4 +36,8 @@ export default {
   footer: true,
   footerEditLink: 'Edit this page on GitHub',
   footerText: <>MIT {new Date().getFullYear()}</>,
+  i18n: [
+    { locale: 'en', text: 'English' },
+    { locale: 'es', text: 'Español' },
+  ],
 }

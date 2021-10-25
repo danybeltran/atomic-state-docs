@@ -1,0 +1,31 @@
+# Atoms
+
+Los Atoms son el centro de Atomic State
+
+### ¿Qué es un átomo?
+
+Los átomos son la unidad más básica de _materia_.
+
+En Atomic State, un átomo es una parte del estado que conservará su valor en todos los componentes.
+Eso significa que un componente no solo puede suscribirse a él, sino también actualizarlo y otras
+Los componentes suscritos tendrán acceso a su valor más actualizado.
+
+Estos se pueden separar de sus componentes, en diferentes módulos, etc.
+
+### Creando un atom
+
+Creemos nuestro primer átomo que usaremos más adelante
+
+En `atoms/index.js`:
+
+```js
+import { atom } from 'atomic-state'
+export const clicks = atom({
+  name: 'clicks-track',
+  default: 0,
+})
+```
+
+Creemos nuestro primer átomo que usaremos más adelante
+
+> En el código anterior: <br/>> `name`: El nombre del átomo. Esto se usa para rastrear su valor y actualizarlo en todos los componentes. <br/>> `default`: El valor del átomo predeterminado. Puede ser cualquier estructura de datos (incluidos los componentes)

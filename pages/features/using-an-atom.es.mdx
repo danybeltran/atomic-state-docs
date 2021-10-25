@@ -1,10 +1,10 @@
-# Using an atom
+# Usando un atom
 
-Now we can use the `clicks` atom in any component. To do that, you should use the `useAtom` hook.
+Ahora podemos usar el átomo `clicks` en cualquier componente. Para hacer eso, debes usar el hook `useAtom`.
 
-This is similar to `useState`, the main difference is that it returns 3 items instead of 2. The third item is the actions object.
+Esto es similar a `useState`, la principal diferencia es que devuelve 3 elementos en lugar de 2. El tercer elemento es el objeto de acciones.
 
-But we will see that later:)
+Pero lo veremos más tarde :)
 
 ```jsx
 import { useAtom } from 'atomic-state'
@@ -27,17 +27,16 @@ function App() {
 }
 ```
 
-You just created your first atom 🥳!
+¡Acabas de crear tu primer átomo 🥳!
 
-## Subscribing to an atom
+## Suscribirse a un átomo
 
-When you use `useAtom`, that component or custom hook will subscribe to all of the changes made to that atom.
-
+Cuando usa `useAtom`, ese componente o hook personalizado se suscribirá a todos los cambios realizados en ese átomo.
 That means, it will trigger a re-render of that component's React tree.
 
-Now, let's split that component into two.
+Ahora, dividamos ese componente en dos.
 
-In one component, we will show `clicks` value, and from the other one, we will update it.
+En un componente, mostraremos el valor de "clicks", y en el otro, lo actualizaremos.
 
 ```jsx
 import { useAtom } from 'atomic-state'
@@ -74,16 +73,15 @@ export default function App() {
 }
 ```
 
-That's it!
+¡Eso es todo!
 
-Basically, all components subscribed to `clicks` will re-render:)
-
+Básicamente, todos los componentes suscritos a `clicks` se volverán a renderizar :)
 Isn't it amazing?
 
-Now imagine having to write:
+Ahora imagina tener que escribir:
 
 ```jsx
 const [clicksCount, setClicksCount] = useAtom(clicks)
 ```
 
-Whenever you want to use an atom. We'll see an alternative in the <a href="/features/additional-hooks">Additional hooks</a> chapter.
+Siempre que quieras usar un átomo. Veremos una alternativa en el capítulo <a href="/features/additional-hooks"> hooks adicionales </a>.

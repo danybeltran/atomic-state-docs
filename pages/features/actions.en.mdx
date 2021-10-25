@@ -8,15 +8,15 @@ When you create an atom, you can define an `actions` object that can be used fro
 
 When you define an action, you define it with one argument that has 3 properties:
 
-- `state`: The current state when the action is run
-- `dispatch`: The actual function that updates the atom's value
-- `args`: The object that will be passed when the action is used
+- `state`: The current state when the action is run.
+- `dispatch`: The actual function that updates the atom's value.
+- `args`: The object that will be passed when the action is used.
 
 > Note: The `useAction` hook returns the object with the actions as reducers
 
 Let's go back to our `clicks` atom.
 
-We will add an action that increases/decreases the clicks count, deppending on how it is called
+We will add an action that increases/decreases the clicks count, depending on how it is called
 
 ```jsx
 import { atom } from 'atomic-state'

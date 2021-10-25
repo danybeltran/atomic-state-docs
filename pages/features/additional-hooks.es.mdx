@@ -1,0 +1,63 @@
+# Hooks adicionales
+
+Hay otros hooks útiles disponibles. Echemos un vistazo a cada uno de ellos.
+
+## `useValue`
+
+Devuelve solo el valor del átomo. Para usarlo:
+
+```jsx
+import { useValue } from 'atomic-state'
+```
+
+Ahora en lugar de escribir:
+
+```jsx
+const [clicksCount] = useAtom(clicks)
+```
+
+Escribirías:
+
+```jsx
+const clicksCount = useValue(clicks)
+```
+
+## `useDispatch`
+
+Devuelve la función que actualiza el valor del átomo. Para usarlo:
+
+```jsx
+import { useDispatch } from 'atomic-state'
+```
+
+Antes:
+
+```jsx
+const [, setClicksCount] = useAtom(clicks)
+```
+
+Después:
+
+```jsx
+const setClicksCount = useDispatch(clicks)
+```
+
+## `useActions`
+
+Devuelve el objeto de acciones del átomo. Para usarlo:
+
+```jsx
+import { useActions } from 'atomic-state'
+```
+
+Antes:
+
+```jsx
+const [clicksCount, setClicksCount, actions] = useAtom(clicks)
+```
+
+Después:
+
+```jsx
+const actions = useActions(clicks)
+```
