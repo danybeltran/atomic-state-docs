@@ -1,9 +1,13 @@
 import 'nextra-theme-docs/style.css'
 import Head from 'next/head'
+import { useState } from 'react'
 import { useCopyCode } from '../hooks/useCopyCode'
-import "../clipboard.css";
+import '../clipboard.css'
+import '../notification.css'
+import Notification from '../components/Notification'
 export default function Nextra({ Component, pageProps }) {
-  useCopyCode()
+  const [ShowAlert, SetShowAlert] = useState(false)
+  useCopyCode({ SetShowAlert })
   return (
     <>
       <Head>
@@ -13,6 +17,7 @@ export default function Nextra({ Component, pageProps }) {
         />
         <meta property="og:image" content="/preview-image.jpg" />
       </Head>
+      <Notification show={ShowAlert} />
       <Component {...pageProps} />
     </>
   )
